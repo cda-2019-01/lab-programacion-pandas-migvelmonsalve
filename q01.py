@@ -1,16 +1,14 @@
 ##
-## Imprima la suma de la segunda columna.
-##
-text = []
-with open('data.csv', 'rt') as f:
-    text += f.readlines()
+## Imprima la cantidad de registros por cada letra 
+## de la columna _c1 de la tabla tbl0
+## 
+import pandas as pd
+import numpy as np
 
-text = [line.replace('\t',',') for line in text]
-text = [line.split(',') for line in text]
+df = pd.read_csv('tbl0.tsv',  # el archivo
+                    sep = '\t',         # separador de campos
+                    thousands = None,  # separador de miles para números
+                    decimal = '.')  
 
-x = 0
-
-for line in text:
-    x = x + int(line[1])
-
+x = df.groupby('_c1').count()['_c0']
 print(x)

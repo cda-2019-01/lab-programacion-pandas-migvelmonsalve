@@ -1,15 +1,14 @@
 ##
-## Por cada clave de la columna 5 (cadena de tres letras), obtenga
-## el valor mas pequeño y el valor mas grande asociado a esa clave.
-##
-## aaa,0,6
-## bbb,4,7
-## ccc,0,1
-## ddd,5,5
-## eee,0,0
-## fff,4,9
-## ggg,3,3
-## hhh,6,8
-## iii,2,7
-## jjj,2,5
-##
+## Imprima la suma de la _c2 por cada letra de la _c1 
+## de la tabla tbl0
+## 
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv('tbl0.tsv',  # el archivo
+                    sep = '\t',         # separador de campos
+                    thousands = None,  # separador de miles para números
+                    decimal = '.')  
+
+x = df.groupby('_c1')['_c2'].sum()
+print(x)
