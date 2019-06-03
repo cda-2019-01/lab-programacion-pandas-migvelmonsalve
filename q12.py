@@ -18,8 +18,8 @@ df2 = pd.read_csv('tbl0.tsv',  # el archivo
                     decimal = '.') 
 
 df = df.join(df2,how='left',on='_c0',lsuffix='_caller', rsuffix='_other')
-df = df[['_c5a','_c2']]
-df = df.sort_values('_c5a')
-x = df.groupby('_c5a')['_c2'].sum()
+df = df[['_c1','_c5b']]
+df = df.sort_values('_c5b')
+x = df.groupby('_c1')['_c5b'].sum()
 print(x)
 
